@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
-app.use(express.static('files'));
+
 
 //read db.json
 
@@ -29,6 +29,7 @@ app.get("/notes", function(req,res){
 app.get("/api/notes", function(req,res){
     res.sendFile(path.join(__dirname, "/public/notes.html"))
 })
+
 //get response from /NOTES
 app.get("/notes", function(req,res){
      
