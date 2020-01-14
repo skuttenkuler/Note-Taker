@@ -1,3 +1,6 @@
+const fs = require("fs");
+
+
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
@@ -51,16 +54,20 @@ var renderActiveNote = function() {
 
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
+  console.log("i clicked")
   var newNote = {
     title: $noteTitle.val(),
     text: $noteText.val()
   };
+
+  fs.writeFileSync(__dirname +'/db.json', JSON.stringify(newNote));
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
     renderActiveNote();
   });
 };
+
 
 // Delete the clicked note
 var handleNoteDelete = function(event) {
