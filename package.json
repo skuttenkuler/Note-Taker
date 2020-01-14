@@ -1,0 +1,24 @@
+{
+  "name": "Note-Taker",
+  "version": "1.0.0",
+  "description": "Express Note Taker App for Berkeley Bootcamp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skuttenkuler/Note-Taker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "bugs": {
+    "url": "https://github.com/skuttenkuler/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/skuttenkuler/Note-Taker#readme"
+}
