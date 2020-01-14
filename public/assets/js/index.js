@@ -1,4 +1,4 @@
-const fs = require("fs");
+
 
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
@@ -58,8 +58,6 @@ var handleNoteSave = function() {
     title: $noteTitle.val(),
     text: $noteText.val()
   };
-
-  fs.writeFileSync(__dirname +'/db.json', JSON.stringify(newNote));
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
