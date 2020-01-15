@@ -6,6 +6,7 @@ Express Note Taker App for Berkeley Bootcamp reading, adding, and deleting data 
 
 # Preview
 
+![Alt text](./public/assets/images/NoteGif.gif?raw=true "Preview Gif")
 
 # Prerequisites
 * [NodeJS](https://nodejs.org/en/)
