@@ -48,8 +48,24 @@ app.post("/api/notes", function(req, res){
         });
     })
 });
-//display notes
-//add notes
+
+//delete note
+app.delete("/api/notes/:id", function(req,res){
+    fs.readFile(path.join(__dirname, "/db/db.json"), "utf-8", function(err, data){
+        if (err) throw err;
+        let db = JSON.parse(data);
+        var id = req.param.id;
+        for(i = 0; i < db.length; i++){
+            if(db[i].id === id){
+                delete i
+            }
+        }
+        fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function(err){
+            if (err) throw err;
+            console.log("note deleted");
+        })
+    })
+});
 //start server
 app.listen(PORT, function(){
     console.log("listening on port:" + PORT)
