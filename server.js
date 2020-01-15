@@ -54,10 +54,10 @@ app.delete("/api/notes/:id", function(req,res){
     fs.readFile(path.join(__dirname, "/db/db.json"), "utf-8", function(err, data){
         if (err) throw err;
         let db = JSON.parse(data);
-        var id = req.param.id;
+        var noteID = req.param.id;
         for(i = 0; i < db.length; i++){
-            if(db[i].id === id){
-                delete i
+            if(db[i].id === noteID){
+                 delete db[i];
             }
         }
         fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function(err){
