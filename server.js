@@ -30,7 +30,7 @@ app.get("/notes", function(req,res){
 app.get("/api/notes", function(req, res){
     res.sendFile(path.join(__dirname, "/db/db.json"));
 })
-
+//Post a Note
 app.post("/api/notes", function(req, res){
     let newNote = req.body;
     fs.readFile(path.join(__dirname, "/db/db.json"), "utf-8", function(err, data){
@@ -53,16 +53,18 @@ app.post("/api/notes", function(req, res){
 app.delete("/api/notes/:id", function(req,res){
     fs.readFile(path.join(__dirname, "/db/db.json"), "utf-8", function(err, data){
         if (err) throw err;
+        
         let db = JSON.parse(data);
-        var noteID = req.param.id;
-        for(i = 0; i < db.length; i++){
-            if(db[i].id === noteID){
-                 delete db[i];
-            }
-        }
-        fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function(err){
+        var noteID = parseInt(req.params.id);
+        console.log(db);
+        console.log(noteID);
+        //return new arr with items that were selected
+        var newDB = db.filter(num => num.id != noteID);
+                 
+        fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(newDB), function(err){
             if (err) throw err;
             console.log("note deleted");
+            
         })
     })
 });
