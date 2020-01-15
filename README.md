@@ -59,7 +59,7 @@ npm install
  ```javascript
  //delete note
 app.delete("/api/notes/:id", function(req,res){
-    fs.readFile(path.join(__dirname, "/db/db.json"), "utf-8", function(err, data){
+    fs.readFile(path.join(__dirname, "/db/db.json"), "utf-8", function(err){
         if (err) throw err;
         let db = JSON.parse(data);
         var noteID = parseInt(req.params.id);
